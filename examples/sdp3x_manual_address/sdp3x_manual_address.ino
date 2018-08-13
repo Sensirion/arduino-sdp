@@ -13,17 +13,17 @@ void setup() {
   Wire.begin();
   Serial.begin(9600);
   delay(1000); // let serial console settle
-
-  int ret = sdp.init();
-  if (ret == 0) {
-    Serial.print("init(): success\n");
-  } else {
-    Serial.print("init(): failed, ret = ");
-    Serial.println(ret);
-    while (true) {
+  do {
+    int ret = sdp.init();
+    if (ret == 0) {
+      Serial.print("init(): success\n");
+      break;
+    } else {
+      Serial.print("init(): failed, ret = ");
+      Serial.println(ret);
       delay(1000);
     }
-  }
+  } while(true);
 }
 
 void loop() {
