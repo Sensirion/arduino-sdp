@@ -80,7 +80,7 @@ int SDPSensor::readSample()
 
   int16_t dp_raw   = (int16_t)data[0] << 8 | data[1];
   int16_t temp_raw = (int16_t)data[3] << 8 | data[4];
-  uint8_t dp_scale  = (int16_t)data[6] << 8 | data[7];
+  int16_t dp_scale  = (int16_t)data[6] << 8 | data[7];
 
   mDifferentialPressure = dp_raw / (float)dp_scale;
   mTemperature = temp_raw / 200.0;
